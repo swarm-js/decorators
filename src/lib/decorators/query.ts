@@ -1,4 +1,3 @@
-import { SwarmQuery } from '../interfaces'
 import { JSONSchema7 } from '../interfaces/JsonSchema'
 
 /**
@@ -27,7 +26,7 @@ export function Query (
       target.prototype.swarm.methods[propertyKey].query = []
     target.prototype.swarm.methods[propertyKey].query =
       target.prototype.swarm.methods[propertyKey].query.filter(
-        (r: SwarmQuery) => r.name !== name
+        (r: any) => r.name !== name
       )
     target.prototype.swarm.methods[propertyKey].query.push({
       name,

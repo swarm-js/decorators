@@ -1,4 +1,3 @@
-import { SwarmParameter } from '../interfaces'
 import { JSONSchema7 } from '../interfaces/JsonSchema'
 
 /**
@@ -27,7 +26,7 @@ export function Parameter (
         target.prototype.swarm.methods[propertyKey].parameters = []
       target.prototype.swarm.methods[propertyKey].parameters =
         target.prototype.swarm.methods[propertyKey].parameters.filter(
-          (r: SwarmParameter) => r.name !== name
+          (r: any) => r.name !== name
         )
       target.prototype.swarm.methods[propertyKey].parameters.push({
         name,
@@ -38,9 +37,7 @@ export function Parameter (
       if (target.prototype.swarm.parameters === undefined)
         target.prototype.swarm.parameters = []
       target.prototype.swarm.parameters =
-        target.prototype.swarm.parameters.filter(
-          (r: SwarmParameter) => r.name !== name
-        )
+        target.prototype.swarm.parameters.filter((r: any) => r.name !== name)
       target.prototype.swarm.parameters.push({
         name,
         schema,
